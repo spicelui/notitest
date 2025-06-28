@@ -1,10 +1,10 @@
 const CACHE_NAME = 'noti-pwa-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/app.js',
-  '/manifest.json',
-  '/icon.png'
+  './',
+  './index.html',
+  './app.js',
+  './manifest.json',
+  './icon.png'
 ];
 
 self.addEventListener('install', event => {
