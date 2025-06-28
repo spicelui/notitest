@@ -5,21 +5,26 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.error('❌ Error al registrar Service Worker', err));
 }
 
-// Pedir permiso para notificaciones
-document.addEventListener("DOMContentLoaded", () => {
-  if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-  }
-});
-
-// Función para enviar notificación
-function enviarNotificacion() {
-  if (Notification.permission === "granted") {
-    new Notification("📢 Hola!", {
-      body: "Esta es una notificación de prueba desde la PWA",
-      icon: "icon.png"
+function pedirPermisoYNotificar() {
+  if (Notification.permission === 'default') {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        enviarNotificacion();
+      } else {
+        alert('Permiso denegado para notificaciones');
+      }
     });
+  } else if (Notification.permission === 'granted') {
+    enviarNotificacion();
   } else {
-    alert("No tienes permisos de notificación");
+    alert('No tienes permisos de notificación');
   }
 }
+
+function enviarNotificacion() {
+  new Notification("📢 Hola!", {
+    body: "Esta es una notificación de prueba desde la PWA",
+    icon: "icon.png"
+  });
+}
+
