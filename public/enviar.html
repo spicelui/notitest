@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enviar Notificación</title>
+</head>
+<body>
+  <h1>Desde laptop 💻</h1>
+  <button onclick="enviarNoti()">Enviar Notificación</button>
+  <script>
+    function enviarNoti() {
+      fetch('http://localhost:3000/notify', { method: 'POST' });
+    }
+  </script>
+</body>
+</html>
