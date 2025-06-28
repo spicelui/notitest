@@ -2,6 +2,7 @@
   "name": "PWA Notificación Test",
   "short_name": "NotiTest",
   "display": "standalone",
+  "start_url": "./"
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
